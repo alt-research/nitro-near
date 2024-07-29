@@ -163,9 +163,9 @@ COPY --from=brotli-wasm-export / target/
 COPY scripts/build-brotli.sh scripts/
 COPY brotli brotli
 RUN touch -a -m arbitrator/prover/src/lib.rs
-RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-prover-lib
-RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-prover-bin
-RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-jit
+#RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-prover-lib
+#RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-prover-bin
+#RUN NITRO_BUILD_IGNORE_TIMESTAMPS=1 make build-jit
 
 FROM scratch AS prover-export
 COPY --from=prover-builder /workspace/target/ /
